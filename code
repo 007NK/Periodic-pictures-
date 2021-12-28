@@ -1,0 +1,25 @@
+import numpy as np
+import cv2
+from google.colab.patches import cv2_imshow
+from matplotlib.pyplot import figure
+
+
+w, h = 22, 22
+n=500
+
+dataset = np.empty(shape=[n,w,h,1])   
+
+for i in range (0,n):
+  data = np.zeros((h, w, 1), dtype=np.uint8)
+
+  xx=(np.sin(np.deg2rad(30*i))+1)*255/2
+  data[:, :] = [xx] 
+  dataset[i,:,:,:]= data
+  
+  
+
+
+for i in range(10,50):
+ cv2_imshow(dataset[i])
+       
+
